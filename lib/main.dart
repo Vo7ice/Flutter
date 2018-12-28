@@ -1,4 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'view/MyView.dart';
+import 'view/StarView.dart';
 
 void main() => runApp(MyApp());
 
@@ -46,6 +50,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+  Color _color = Colors.black;
+
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -54,6 +60,12 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+    });
+  }
+
+  void _changeColor() {
+    setState(() {
+      _color = randomRGB();
     });
   }
 
@@ -71,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
+      /* body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
@@ -98,14 +110,48 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+            MyView(
+              text:"Demo text",
+            ),
           ],
         ),
+      ), */
+      body: CustomPaint(
+        painter: StarView(context,_color),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _changeColor,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  Color randomRGB() {
+    Random random = new Random();
+    int r = 30 + random.nextInt(200);
+    int b = 30 + random.nextInt(200);
+    int g = 30 + random.nextInt(200);
+    return Color.fromARGB(255, r, g, b);
+  }
+
+  static const PI = 3.1415926;
+  final x = 10;
+  main() {
+
+    var radius ;
+    radius = 10;
+    // radius = "try";
+    var c = getC(radius);
+  }
+
+  double getC(int radius) {
+    var c = 2 * PI * radius;
+    return c;
+  }
+
+  void op() {
+    var nums = [ 5,3,2,1,4];
+    nums.sort((a, b) => a.compareTo(b));
   }
 }
