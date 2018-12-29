@@ -117,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ), */
       body: CustomPaint(
-        painter: StarView(context,_color),
+        painter: StarView(context, _color),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _changeColor,
