@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'view/MyView.dart';
 import 'view/StarView.dart';
+import 'package:myapp/page/AnimaPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: AnimaPage(),
     );
   }
 }
