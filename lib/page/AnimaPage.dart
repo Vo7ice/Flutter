@@ -36,14 +36,22 @@ class _AnimaPageState extends State<AnimaPage>
       radius_animation = Tween(
         begin: 25.0,
         end: 150.0,
-      ).animate(radius_controller)..addListener(
+      ).animate(CurveTween(curve: Cubic(0.96, 0.13, 0.1, 1.2)).animate(radius_controller))
+      ..addListener(
         () {
           setState(() {
             _r = radius_animation.value;
             _num = radius_animation.value.toInt();
           });
         }
-      );
+      )
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          radius_controller.reverse();
+        } else if (status == AnimationStatus.dismissed) {
+          radius_controller.forward();
+        }
+      });
       color_controller = AnimationController(
         duration: const Duration(
           milliseconds: 2000

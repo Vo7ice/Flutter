@@ -150,3 +150,11 @@ import 'package:flutter/material.dart';
     double r = R * cos(_rad(360 / num / 2));
     return nStarPath(num, R, r);
   }
+
+  Color randomRGB() {
+    Random random = new Random();
+    int r = 30 + random.nextInt(200);
+    int b = 30 + random.nextInt(200);
+    int g = 30 + random.nextInt(200);
+    return Color.fromARGB(255, r, g, b);
+  }

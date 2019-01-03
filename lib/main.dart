@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'view/MyView.dart';
 import 'view/StarView.dart';
 import 'package:myapp/page/AnimaPage.dart';
+import 'package:myapp/page/BallPage.dart';
+import 'package:myapp/help/common.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,7 +28,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
       ),
       // home: MyHomePage(title: 'Flutter Demo Home Page'),
-      home: AnimaPage(),
+      // home: AnimaPage(),
+      home: BallPage(),
     );
   }
 }
@@ -127,14 +130,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
-  }
-
-  Color randomRGB() {
-    Random random = new Random();
-    int r = 30 + random.nextInt(200);
-    int b = 30 + random.nextInt(200);
-    int g = 30 + random.nextInt(200);
-    return Color.fromARGB(255, r, g, b);
   }
 
   static const PI = 3.1415926;
